@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'secureApp',
     'rest_framework',
     'api',
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
     # 'django_filters',
 ]
 
@@ -75,6 +75,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 LANGUAGE_CODE = 'en-us'
 

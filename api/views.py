@@ -3,4 +3,4 @@ from django.http import JsonResponse
 
 
 def apiView(request):
-    return JsonResponse('Hello')
+    return JsonResponse('Hello', safe=False)

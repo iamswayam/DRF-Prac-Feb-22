@@ -17,3 +17,6 @@ class SecureHub(models.Model):
     secKey = models.IntegerField(null=False, blank=False)
     linkedSoft = models.ForeignKey(Software, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.portName

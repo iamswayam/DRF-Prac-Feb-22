@@ -3,4 +3,4 @@ from django.http import JsonResponse
 
 
 def secureView(request):
-    return JsonResponse('Hey',
+    return JsonResponse('Hey', safe=False)
