@@ -36,6 +36,17 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 
 class SecureSerializer(serializers.ModelSerializer):
+    handledBy = serializers.StringRelatedField(read_only=True)
+    linkedSoft = serializers.CharField(source='linkedSoft.name')
+
     class Meta:
         model = SecureHub
+        fields = "__all__"
+
+
+class SoftwareSerializer(serializers.ModelSerializer):
+    devlopedBy = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Software
         fields = "__all__"
