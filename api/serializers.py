@@ -35,7 +35,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return account
 
 
-class SecureSerializer(serializers.Serializer):
+class SecureSerializer(serializers.ModelSerializer):
     class Meta:
         model = SecureHub
         fields = "__all__"
