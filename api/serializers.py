@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from secureApp.models import Software, SecureHub
 from django.contrib.auth.models import User
+from drf_writable_nested import WritableNestedModelSerializer
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -35,16 +36,17 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return account
 
 
-class SecureSerializer(serializers.ModelSerializer):
+class SecureSerializer(WritableNestedModelSerializer, serializers.ModelSerializer):
     handledBy = serializers.StringRelatedField(read_only=True)
-    linkedSoft = serializers.CharField(source='linkedSoft.name')
+    # linkedSoft = serializers.CharField(source='linkedSoft.name')
 
     class Meta:
         model = SecureHub
-        fields = "__all__"
+        exclude = ('linkedSoft',)
+        # fields = "__all__"
 
 
-class SoftwareSerializer(serializers.ModelSerializer):
+class SoftwareSerializer(WritableNestedModelSerializer, serializers.ModelSerializer):
     devlopedBy = serializers.StringRelatedField(read_only=True)
 
     class Meta:

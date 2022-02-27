@@ -9,7 +9,9 @@ urlpatterns = [
     path('login/', obtain_auth_token, name='login'),
     path('register/', views.registration_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
-    # secureApp
+    # SecureApp
     path('data/', secViews.secureHubList, name="secureHubList"),
+    path('data/<int:pk>/', secViews.secureHub1.as_view(), name="secureHub1"),
+    # Software
     path('apps/', secViews.softwareList, name="softwareList")
 ]

@@ -9,7 +9,7 @@ class Software(models.Model):
     devlopedBy = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.name + " | " + str(self.devlopedBy)
 
 
 class SecureHub(models.Model):
@@ -24,4 +24,4 @@ class SecureHub(models.Model):
     licensed = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.portName
+        return self.portName + " | " + str(self.handledBy) + " | " + self.linkedSoft.name
